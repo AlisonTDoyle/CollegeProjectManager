@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CollegeProjectManager.Pages;
+using CollegeProjectManager.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,17 @@ namespace CollegeProjectManager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ProjectDashboard();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settingsWindow = new Settings();
+            settingsWindow.Show();
         }
     }
 }
