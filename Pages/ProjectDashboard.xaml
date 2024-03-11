@@ -9,6 +9,21 @@
       Title="ProjectDashboard">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="8" Orientation="Horizontal">
+            <ComboBox Padding="4,8" Width="240" VerticalAlignment="Center">
+            </ComboBox>
+
+            <TextBox Margin="8,0,0,0" Padding="4,8" Width="240" VerticalAlignment="Center"/>
+            <Button Content="Search" Margin="4,0,0,0" VerticalAlignment="Center"/>
+
+            <Button Content="Create New Project" HorizontalAlignment="Right" x:Name="btnCreateNewProject" Click="btnCreateNewProject_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Margin="8" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
     </Grid>
 </Page>

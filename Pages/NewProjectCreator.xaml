@@ -9,6 +9,6 @@
       Title="NewProjectCreator">
 
     <Grid>
-        
+        <Label Content="New Project Creator"/>
     </Grid>
 </Page>

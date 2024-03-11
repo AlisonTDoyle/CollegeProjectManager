@@ -24,5 +24,17 @@ namespace CollegeProjectManager.Pages
         {
             InitializeComponent();
         }
+
+        private void dgProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.Main.Navigate(new ProjectDetails());
+        }
+
+        private void btnCreateNewProject_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.Main.Navigate(new NewProjectCreator());
+        }
     }
 }
