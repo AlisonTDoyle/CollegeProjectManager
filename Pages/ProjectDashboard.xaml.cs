@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CollegeProjectManager.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,14 @@ namespace CollegeProjectManager.Pages
         {
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow.Main.Navigate(new NewProjectCreator());
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DatabaseHandler handler = new DatabaseHandler();
+            List<Project> projects = new List<Project>();
+
+            dgProjects.ItemsSource = projects;
         }
     }
 }

@@ -85,6 +85,7 @@
     <Compile Include="Task.cs">
       <DependentUpon>ProjectDbEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\DatabaseHandler.cs" />
     <Compile Include="Windows\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
