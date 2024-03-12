@@ -37,5 +37,10 @@ namespace CollegeProjectManager
             Settings settingsWindow = new Settings();
             settingsWindow.Show();
         }
+
+        private void btnDisplayProjectDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ProjectDashboard();
+        }
     }
 }
