@@ -41,7 +41,7 @@ namespace CollegeProjectManager.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DatabaseHandler handler = new DatabaseHandler();
-            List<Project> projects = new List<Project>();
+            List<Project> projects = handler.FetchProjects();
 
             dgProjects.ItemsSource = projects;
         }
