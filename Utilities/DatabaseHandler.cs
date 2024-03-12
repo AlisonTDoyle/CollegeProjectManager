@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CollegeProjectManager.Utilities
 {
-    internal class DatabaseHandler
+    public class DatabaseHandler
     {
         ProjectDBEntities db = new ProjectDBEntities();
 
@@ -14,6 +14,14 @@ namespace CollegeProjectManager.Utilities
         {
             var query = from project in db.Projects
                         select project;
+
+            return query.ToList();
+        }
+
+        public List<Task> FetchTasks(int projectId)
+        {
+            var query = from task in db.Tasks
+                        select task;
 
             return query.ToList();
         }
