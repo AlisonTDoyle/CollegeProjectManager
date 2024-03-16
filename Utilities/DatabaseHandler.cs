@@ -45,6 +45,7 @@ namespace CollegeProjectManager.Utilities
         public List<Task> FetchTasks(int projectId)
         {
             var query = from task in db.Tasks
+                        where task.ProjectId == projectId
                         select task;
 
             return query.ToList();

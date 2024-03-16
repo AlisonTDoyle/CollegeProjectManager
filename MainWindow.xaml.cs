@@ -42,5 +42,27 @@ namespace CollegeProjectManager
         {
             Main.Content = new ProjectDashboard();
         }
+
+        private void Main_Navigated(object sender, NavigationEventArgs e)
+        {
+            if (Main.Content is Page)
+            {
+                // If the content is any page (including ProjectDashboard),
+                // set the button visibility based on whether it's ProjectDashboard or not.
+                if (Main.Content is ProjectDashboard)
+                {
+                    btnDisplayProjectDashboard.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    btnDisplayProjectDashboard.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                // If the content is not a page, hide the button.
+                btnDisplayProjectDashboard.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }
