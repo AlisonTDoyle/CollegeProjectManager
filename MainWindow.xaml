@@ -26,6 +26,6 @@
         </StackPanel>
 
         <!--App pages display-->
-        <Frame Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="Main" x:FieldModifier="public"/>
+        <Frame Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="Main" x:FieldModifier="public" Navigated="Main_Navigated"/>
     </Grid>
 </Window>

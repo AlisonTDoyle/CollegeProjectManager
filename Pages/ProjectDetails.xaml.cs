@@ -38,10 +38,9 @@ namespace CollegeProjectManager.Pages
             List<Task> projectTasks = handler.FetchTasks(_projectId);
 
             // Display project details
-            for (int i = 0; i < projectTasks.Count; i++)
-            {
-                MessageBox.Show(projectTasks[i].Name);
-            }
+            tblkProjectName.Text = project.Name;
+
+            dgProjectTasks.ItemsSource = projectTasks;
         }
     }
 }
