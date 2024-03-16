@@ -9,6 +9,64 @@
       Title="NewProjectCreator">
 
     <Grid>
-        <Label Content="New Project Creator"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Project details form-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="66*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Project Name" Grid.Row="0"/>
+            <Label Content="Subject" Grid.Row="1"/>
+            <Label Content="Due Date" Grid.Row="2"/>
+
+            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" x:Name="tbxProjectName"/>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="tbxSubject"/>
+            <DatePicker Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" x:Name="dpDueDate"/>
+        </Grid>
+    
+        <!--Project tasks form-->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="66*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Project Name" Grid.Row="0"/>
+            <Label Content="Subject" Grid.Row="1"/>
+            <Label Content="Due Date" Grid.Row="2"/>
+
+            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
+        </Grid>
+
+        <!--Project tasks-->
+        <DataGrid Grid.ColumnSpan="2" Grid.Row="1" x:Name="dgProjectTasks"/>
+
+        <Button Content="Create Project" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="btnCreateProject" Click="btnCreateProject_Click"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CollegeProjectManager.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace CollegeProjectManager.Pages
         public NewProjectCreator()
         {
             InitializeComponent();
+        }
+
+        private void btnCreateProject_Click(object sender, RoutedEventArgs e)
+        {
+            CreateProject();
+        }
+
+        private void CreateProject()
+        {
+            string projectName = tbxProjectName.Text;
+            string subject = tbxSubject.Text;
+            DateTime dueDate = (DateTime)dpDueDate.SelectedDate;
+
+            Project newProject = new Project() { Name = projectName, Subject = subject, DueDate = dueDate };
+
+            DatabaseHandler handler = new DatabaseHandler();
+            handler.CreateProject(newProject);
         }
     }
 }

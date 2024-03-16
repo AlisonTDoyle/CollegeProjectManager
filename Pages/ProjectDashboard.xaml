@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CollegeProjectManager.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProjectDashboard">
+      Title="ProjectDashboard" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,6 +24,6 @@
             <Button Content="Create New Project" HorizontalAlignment="Right" x:Name="btnCreateNewProject" Click="btnCreateNewProject_Click"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Margin="8" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
+        <DataGrid Grid.Row="1" Margin="8" SelectedValuePath="Id" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
     </Grid>
 </Page>

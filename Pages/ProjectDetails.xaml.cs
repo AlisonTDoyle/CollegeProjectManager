@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CollegeProjectManager.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,26 @@ namespace CollegeProjectManager.Pages
     /// </summary>
     public partial class ProjectDetails : Page
     {
-        public ProjectDetails()
+        private int _projectId;
+
+        public ProjectDetails(int projectId)
         {
             InitializeComponent();
+            _projectId = projectId;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Fetch project details
+            DatabaseHandler handler = new DatabaseHandler();
+            Project project = (Project)handler.FetchProjectById(_projectId);
+            List<Task> projectTasks = handler.FetchTasks(_projectId);
+
+            // Display project details
+            for (int i = 0; i < projectTasks.Count; i++)
+            {
+                MessageBox.Show(projectTasks[i].Name);
+            }
         }
     }
 }

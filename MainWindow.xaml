@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollegeProjectManager"
         mc:Ignorable="d"
-        Title="Project Manager" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Project Manager" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Margin="32">
         <!--Grid definitions-->
         <Grid.ColumnDefinitions>
@@ -20,7 +20,10 @@
 
         <!--Top app bar-->
         <Label Content="Project Manager" FontSize="40" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Button Content="Settings" Grid.Column="1" HorizontalAlignment="Right" Padding="12, 4" VerticalAlignment="Center" Click="Button_Click"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Go Back" Padding="12, 4" VerticalAlignment="Center" x:Name="btnDisplayProjectDashboard" Click="btnDisplayProjectDashboard_Click"/>
+            <Button Content="Settings" HorizontalAlignment="Right" Margin="8,0,0,0" Padding="12, 4" VerticalAlignment="Center" x:Name="btnOpenSettings"/>
+        </StackPanel>
 
         <!--App pages display-->
         <Frame Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="Main" x:FieldModifier="public"/>
