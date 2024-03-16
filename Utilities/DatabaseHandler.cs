@@ -20,6 +20,15 @@ namespace CollegeProjectManager.Utilities
             return query.ToList();
         }
 
+        public Project FetchProjectById(int id)
+        {
+            var query = from project in db.Projects
+                        where project.Id == id
+                        select project;
+
+            return query.FirstOrDefault();
+        }
+
         public void RemoveProject(int ProjectId)
         {
 

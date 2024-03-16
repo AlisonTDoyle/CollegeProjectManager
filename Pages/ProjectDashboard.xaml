@@ -24,6 +24,6 @@
             <Button Content="Create New Project" HorizontalAlignment="Right" x:Name="btnCreateNewProject" Click="btnCreateNewProject_Click"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Margin="8" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
+        <DataGrid Grid.Row="1" Margin="8" SelectedValuePath="Id" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
     </Grid>
 </Page>
