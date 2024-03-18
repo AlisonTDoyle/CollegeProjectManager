@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLToolkit.4, Version=4.3.9.0, Culture=neutral, PublicKeyToken=b1d3f6ab3aadaca3, processorArchitecture=MSIL">
+      <HintPath>packages\BLToolkit.4.3.9\lib\net40\BLToolkit.4.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,26 +82,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DatabaseModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Project.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>ProjectDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectDatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Task.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>ProjectDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilities\DatabaseHandler.cs" />
     <Compile Include="Windows\Settings.xaml.cs">
@@ -160,14 +163,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DatabaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DatabaseModel.edmx.diagram">
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="ProjectDatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProjectDatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ProjectDatabaseModel.edmx.diagram">
+      <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -192,22 +195,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseModel.Context.tt">
+    <Content Include="ProjectDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ProjectDatabaseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DatabaseModel.tt">
+    <Content Include="ProjectDatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>DatabaseModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="ProjectDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>ProjectDB.mdf</DependentUpon>
+      <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ProjectDatabaseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

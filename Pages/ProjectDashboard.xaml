@@ -14,15 +14,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Margin="8" Orientation="Horizontal">
-            <ComboBox Padding="4,8" Width="240" VerticalAlignment="Center">
-            </ComboBox>
+        <Border Background="#ECEBFD" CornerRadius="12">
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <ComboBox Padding="4,8" Width="240" VerticalAlignment="Center">
+                </ComboBox>
 
-            <TextBox Margin="8,0,0,0" Padding="4,8" Width="240" VerticalAlignment="Center"/>
-            <Button Content="Search" Margin="4,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Margin="8,0,0,0" Padding="4,8" Width="240" VerticalAlignment="Center"/>
+                <Button Content="Search" Margin="4,0,0,0" VerticalAlignment="Center"/>
 
-            <Button Content="Create New Project" HorizontalAlignment="Right" x:Name="btnCreateNewProject" Click="btnCreateNewProject_Click"/>
-        </StackPanel>
+                <Button Content="Create New Project" HorizontalAlignment="Right" x:Name="btnCreateNewProject" Click="btnCreateNewProject_Click"/>
+            </StackPanel>
+        </Border>
 
         <DataGrid Grid.Row="1" Margin="8" SelectedValuePath="Id" x:Name="dgProjects" SelectionChanged="dgProjects_SelectionChanged"/>
     </Grid>

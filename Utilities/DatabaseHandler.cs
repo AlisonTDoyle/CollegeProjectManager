@@ -34,10 +34,18 @@ namespace CollegeProjectManager.Utilities
 
         }
 
-        public void CreateProject(Project project)
+        public void CreateProject(Project project, List<Task> projectTasks)
         {
+            // Create project
             db.Projects.Add(project);
+
             db.SaveChanges();
+            
+            for (int i = 0; i < projectTasks.Count; i++)
+            {
+                projectTasks[i].ProjectId = project.Id;
+                CreateProjectTask(projectTasks[i]);
+            }
         }
         #endregion
 
@@ -56,7 +64,7 @@ namespace CollegeProjectManager.Utilities
 
         }
 
-        public void CreateTask(Task newTask)
+        public void CreateProjectTask(Task newTask)
         {
             db.Tasks.Add(newTask);
             db.SaveChanges();

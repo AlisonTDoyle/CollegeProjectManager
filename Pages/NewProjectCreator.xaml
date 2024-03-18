@@ -9,64 +9,88 @@
       Title="NewProjectCreator">
 
     <Grid>
+        <!--Grid definitions-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         
         <!--Project details form-->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="33*"/>
-                <ColumnDefinition Width="66*"/>
-            </Grid.ColumnDefinitions>
+        <Border Background="#ECEBFD" CornerRadius="12" Padding="16">
+            <Grid>
+                <!--Form layout-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                </Grid.RowDefinitions>
 
-            <Label Content="Project Name" Grid.Row="0"/>
-            <Label Content="Subject" Grid.Row="1"/>
-            <Label Content="Due Date" Grid.Row="2"/>
+                <!--Form contents-->
+                <Label Content="Project Details" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" x:Name="tbxProjectName"/>
-            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="tbxSubject"/>
-            <DatePicker Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" x:Name="dpDueDate"/>
-        </Grid>
-    
+                <Label Content="Project Name" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="tbxProjectName"/>
+
+                <Label Content="Subject/Module" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" x:Name="tbxSubject"/>
+
+                <Label Content="Due Date" Grid.Row="3" VerticalAlignment="Center"/>
+                <DatePicker Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" x:Name="dpProjectDueDate"/>
+            </Grid>
+        </Border>
+
         <!--Project tasks form-->
-        <Grid Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="33*"/>
-                <ColumnDefinition Width="66*"/>
-            </Grid.ColumnDefinitions>
+        <Border Background="#ECEBFD" CornerRadius="12" Grid.Column="0" Grid.Row="1" Margin="0,32,0,0" Padding="16">
+            <Grid>
+                <!--Form layout-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Label Content="Project Name" Grid.Row="0"/>
-            <Label Content="Subject" Grid.Row="1"/>
-            <Label Content="Due Date" Grid.Row="2"/>
+                <!--Form contents-->
+                <Label Content="Project Task" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
-        </Grid>
+                <Label Content="Name" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="tbxTaskName"/>
 
-        <!--Project tasks-->
-        <DataGrid Grid.ColumnSpan="2" Grid.Row="1" x:Name="dgProjectTasks"/>
+                <Label Content="Description" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" x:Name="tbxTaskDescription"/>
 
-        <Button Content="Create Project" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="btnCreateProject" Click="btnCreateProject_Click"/>
+                <Label Content="Due Date" Grid.Row="3" VerticalAlignment="Center"/>
+                <DatePicker Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" x:Name="dpTaskDueDate"/>
+
+                <StackPanel Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
+                    <Button Content="Add" Width="80" x:Name="btnAddTask" Click="btnAddTask_Click"/>
+                    <Button Content="Update" Margin="16,0,0,0" Width="80" x:Name="btnUpdateTask" Click="btnUpdateTask_Click"/>
+                    <Button Content="Delete" Margin="16,0,0,0" Width="80" x:Name="btnDeleteTask" Click="btnDeleteTask_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--Project tasks list-->
+        <DataGrid Grid.Column="1" Grid.RowSpan="2" Margin="32,0,0,0" x:Name="dgProjectTasks" SelectionChanged="dgProjectTasks_SelectionChanged"/>
+
+        <Button Content="Create Project" Grid.ColumnSpan="2" Grid.Row="2" x:Name="btnCreateProject" Click="btnCreateProject_Click"/>
     </Grid>
 </Page>
